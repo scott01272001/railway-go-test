@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:15.3-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_DB: go_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+
+volumes:
+  db-data:
